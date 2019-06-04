@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using PagedList;
+@using PagedList.Mvc;
+@model LowFreightRate.Models.PostQuote.PostQuote;
+
+<article class="Quotes-Blog">
+    <table class="table">
+        
+        <tbody>
+       <tr>
+            <td>
+                <p>@Model.Name</p>
+            </td>
+            <td>
+                <p>@Model.Number</p>
+            </td>
+            <td>
+                <p>@Model.Email</p>
+                
+            </td>
+
+            <td>
+                <p>@Model.Origin</p>
+                
+            </td>
+            <td>
+                <p>@Model.Destination</p>
+                
+            </td>
+            <td>
+                <p>@Model.FreightServices</p>
+               
+            </td>
+        </tr>
+        
+        </tbody>
+        </table>
+
+
+   
+</article>

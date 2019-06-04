@@ -1,0 +1,178 @@
+﻿@model LowFreightRate.Models.PostQuote.PostQuote
+@{
+    ViewData["Title"] = "Quote";
+}
+
+<header class="header btClear large  btAccentDash btRegularTitle">
+    <p class="btSuperTitle">Check the costs</p>
+    <div class="dash">
+        <h2><span class="headline">GET YOUR QUOTE INSTANTLY</span></h2>
+    </div>
+
+</header>
+
+
+<div role="form" class="wpcf7" id="wpcf7-f2319-p1061-o1" lang="en-US" dir="ltr">
+    <div class="screen-reader-response"></div>
+    <form asp-controller="Home" asp-action="Quote" asp-route-returnurl="@ViewData["ReturnUrl"] method="post" class="form-horizontal">
+        <!--div style="display: none;">
+            <input type="hidden" name="_wpcf7" value="2319">
+            <input type="hidden" name="_wpcf7_version" value="4.7">
+            <input type="hidden" name="_wpcf7_locale" value="en_US">
+            <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f2319-p1061-o1">
+            <input type="hidden" name="_wpnonce" value="86e50941c5">
+        </!--div>-->
+        <div class="form-group">
+            <label>
+                Your Name (required)<br />
+            </label>
+            <input asp-for="Name" class="form-control" placeholder="Name"></input>
+
+            <!--span asp-validation-for="Name" class="text-danger"></!--span>-->
+
+        </div>
+
+        <div style="width: 45%; float: left;">
+            <label>
+                Email <br />
+            </label>
+            <input asp-for="Email" class="form-control" placeholder="Email"></input>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div style="width: 45%; float: right;">
+            <label>
+                Contact Number (required)<br>
+
+            </label>
+            <input asp-for="Number" class="form-control" placeholder="Phone Number"></input>
+            <span asp-validation-for="Number" class="text-danger"></span>
+        </div>
+        <div style="clear: both;">&nbsp;</div>
+        <p>
+            <label>
+                Freight Service (required)<br>
+
+            </label>
+            @Html.DropDownListFor(x=> x.FreightServices,
+                                   new SelectList(Enum.GetValues(typeof(LowFreightRate.Models.PostQuote.FreightService))),
+                                   " ",htmlAttributes: new { @class = "form-control" })
+        </p>
+        <p>
+            <label>
+                Type of Commodity (required)<br>
+
+            </label>
+            <input asp-for="commodity" class="form-control" placeholder="What would you like to transport?"></input>
+            <span asp-validation-for="commodity" class="text-danger"></span>
+        </p>
+        <div style="width: 45%; float: left;">
+            <label>
+                Origin (required)<br>
+
+            </label>
+            <input asp-for="Origin" class="form-control" placeholder="Origin" />
+            <span asp-validation-for="Origin" class="text-danger"></span>
+
+        </div>
+        <div style="width: 45%; float: right;">
+            <label>
+                Destination (required)<br>
+
+            </label>
+            <input asp-for="Destination" class="form-control" placeholder="Destination"></input>
+            <span asp-validation-for="Destination" class="text-danger"></span>
+        </div>
+        <div style="clear: both;">&nbsp;</div>
+        <div style="width: 45%; float: left;">
+            <label>
+                Service Type<br>
+
+            </label>
+            @Html.DropDownListFor(x=> x.ServiceTypes,
+                                      new SelectList(Enum.GetValues(typeof(LowFreightRate.Models.PostQuote.ServiceType))),
+                                      " ",htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div style="width: 45%; float: right;">
+            <label>
+                Expedited Service<br>
+
+            </label>
+            @Html.DropDownListFor(x=> x.ExpeditedServices,
+                                     new SelectList(Enum.GetValues(typeof(LowFreightRate.Models.PostQuote.ExpeditedService))),
+                                     " ", htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div style="clear: both;">&nbsp;</div>
+        <div style="width: 45%; float: left;">
+            <label>
+                Type of Trailer<br>
+
+            </label>
+            @Html.DropDownListFor(x=> x.TypeofTrailers,
+                                      new SelectList(Enum.GetValues(typeof(LowFreightRate.Models.PostQuote.TypeofTrailer))),
+                                      " ", htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div style="width: 45%; float: right;">
+            <label>
+                Special Services<br>
+
+            </label>
+            @Html.DropDownListFor(x=> x.SpecialServices,
+                                      new SelectList(Enum.GetValues(typeof(LowFreightRate.Models.PostQuote.SpecialService))),
+                                      " ", htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div style="clear: both;">&nbsp;</div>
+        <div style="width: 45%; float: left;">
+            <label>
+                Dimensions<br>
+
+            </label>
+            <input asp-for="Dimensions" class="form-control" placeholder="Length x Width x Height"></input>
+            <span asp-validation-for="Dimensions" class="text-danger"></span>
+        </div>
+
+        <div style="width: 45%; float: right;">
+            <label>
+                Total Weight<br>
+
+            </label>
+            <input asp-for="Weight" class="form-control" placeholder="Lbs/Kilos"></input>
+            <span asp-validation-for="Weight" class="text-danger"></span>
+        </div>
+
+        <div style="clear: both;">&nbsp;</div>
+        <div style="width: 45%; float: left;">
+            <label>
+                Number of Pallets<br>
+
+            </label>
+            <input asp-for="NumberOfPallets" class="form-control" placeholder="NumberOfPallets"></input>
+            <span asp-validation-for="NumberOfPallets" class="text-danger"></span>
+        </div>
+
+        <div style="width: 45%; float: right;">
+            <label>
+                Delivery Time<br>
+
+            </label>
+            <input asp-for="DeliveryTime" class="form-control" placeholder="DeliveryTime"></input>
+            <span asp-validation-for="DeliveryTime" class="text-danger"></span>
+        </div>
+
+        <div style="clear: both;">&nbsp;</div>
+        <p>
+            <label>
+                Additional Cargo Details<br>
+                <textarea name="AdditionalCargoDetails" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Provide Loading date"></textarea>
+                <span asp-validation-for="AdditionalCargoDetails" class="text-danger"></span>
+            </label>
+        </p>
+        <p>
+            <input type="submit" value="Request a Freight Quote" class="wpcf7-form-control wpcf7-submit"><span class="ajax-loader"></span>
+            <!--  <input id="btnSubmit" type="button" value="Submit" onclick="btnClick();" />-->
+            <!-- <asp:button>OnClientClick="return validate();" onclick="Request a Freight Quote"</asp:button></p> -->
+            <div class="wpcf7-response-output wpcf7-display-none"></div>
+    </form>
+</div>
+
+
+
